@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "properties": {
+    "response": {
+      "type": "boolean"
+    },
+    "error": {
+      "type": "string"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "price": {
+            "type": "number",
+            "minimum": 0
+          },
+          "discount": {
+            "type": "number",
+            "minimum": 0
+          },
+          "count": {
+            "type": "number",
+            "minimum": 0
+          },
+          "poster": {
+            "type": "string",
+            "pattern": "^\\/img\\/products\\/.+\\.(jpg|png)$"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "type",
+          "price",
+          "discount",
+          "count",
+          "poster"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "page": {
+      "type": "number",
+      "minimum": 1
+    },
+    "pages": {
+      "type": "number",
+      "minimum": 1
+    }
+  },
+  "required": [
+    "response",
+    "error",
+    "products",
+    "page",
+    "pages"
+  ],
+  "additionalProperties": false
+}

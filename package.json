@@ -1,0 +1,45 @@
+{
+  "name": "enotes-tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test:api": "mocha --no-parallel -r ts-node/register api/tests/**/*.test.ts --timeout 10000 --reporter mocha-multi-reporters --reporter-options configFile=mocha-reporter-config.json",
+    "test": "npm run test:api",
+    "test:e2e": "playwright test",
+    "test:chrome": "cross-env BROWSER=chromium playwright test",
+    "test:firefox": "cross-env BROWSER=firefox playwright test",
+    "test:safari": "cross-env BROWSER=webkit playwright test",
+    "test:all": "playwright test --project=chromium --project=firefox --project=webkit",
+    "allure:generate": "allure generate ./allure-results --clean -o ./allure-report",
+    "allure:open": "allure open ./allure-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "axios": "^1.10.0",
+    "axios-cookiejar-support": "^6.0.2",
+    "chai": "^5.2.0",
+    "dotenv": "^16.5.0",
+    "mocha": "^11.7.0",
+    "qs": "^6.14.0",
+    "tough-cookie": "^5.1.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.1",
+    "@types/chai": "^5.2.2",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.0.3",
+    "@types/qs": "^6.14.0",
+    "@types/tough-cookie": "^4.0.5",
+    "allure-mocha": "^2.15.1",
+    "allure-playwright": "^3.3.0",
+    "cross-env": "^7.0.3",
+    "mocha-multi-reporters": "^1.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
